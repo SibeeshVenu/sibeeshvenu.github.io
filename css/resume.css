@@ -52,7 +52,7 @@ h2 {
 }
 
 .list-icons {
-  font-size: 3rem;
+  font-size: 1.3rem;
 }
 
 .list-icons .list-inline-item i:hover {
@@ -131,7 +131,7 @@ section.resume-section .resume-item .resume-date {
 }
 
 .bg-primary {
-  background-color: rgba(65, 56, 188, 1) !important;
+  background-color: #1f2021 !important;
 }
 
 .text-primary {
