@@ -1,7 +1,15 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: 'Open Sans', serif;
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   padding-top: 54px;
   color: #868e96;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
 }
 
 @media (min-width: 992px) {
@@ -41,10 +49,18 @@ h2 {
 
 .list-social-icons a {
   color: #495057;
+  transition: all 0.3s ease-in-out;
+  display: inline-block;
 }
 
 .list-social-icons a:hover {
   color: #BD5D38;
+  transform: translateY(-3px);
+}
+
+.list-social-icons a:focus {
+  outline: 2px solid #BD5D38;
+  outline-offset: 2px;
 }
 
 .list-social-icons a .fa-lg {
@@ -62,6 +78,17 @@ h2 {
 #sideNav .navbar-nav .nav-item .nav-link {
   font-weight: 600;
   text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+}
+
+#sideNav .navbar-nav .nav-item .nav-link:hover {
+  color: #BD5D38;
+  padding-left: 1.5rem;
+}
+
+#sideNav .navbar-nav .nav-item .nav-link.active {
+  color: #BD5D38;
 }
 
 @media (min-width: 992px) {
@@ -108,10 +135,30 @@ section.resume-section {
   border-bottom: 1px solid #dee2e6;
   padding-top: 1rem !important;
   padding-bottom: 1rem !important;
+  animation: fadeIn 0.6s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 section.resume-section .resume-item .resume-date {
   min-width: none;
+}
+
+.resume-item {
+  transition: transform 0.3s ease-in-out;
+}
+
+.resume-item:hover {
+  transform: translateX(5px);
 }
 
 @media (min-width: 768px) {
@@ -130,6 +177,30 @@ section.resume-section .resume-item .resume-date {
   }
 }
 
+/* Improved responsive images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Better focus states for accessibility */
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid #BD5D38;
+  outline-offset: 2px;
+}
+
+/* Improved list styling */
+.list-icons li {
+  transition: color 0.3s ease-in-out;
+}
+
+.list-icons li:hover {
+  color: #BD5D38;
+}
+
 .bg-primary {
   background-color: #1f2021 !important;
 }
@@ -140,8 +211,16 @@ section.resume-section .resume-item .resume-date {
 
 a {
   color: #BD5D38;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
 }
 
 a:hover, a:focus, a:active {
   color: #824027;
+  text-decoration: underline;
+}
+
+a:focus {
+  outline: 2px solid #BD5D38;
+  outline-offset: 2px;
 }
