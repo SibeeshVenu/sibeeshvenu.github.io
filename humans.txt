@@ -1,0 +1,19 @@
+/* TEAM */
+Developer: Sibeesh Venu
+Contact: info@sibeeshpassion.com
+Twitter: @SibeeshVenu
+LinkedIn: https://www.linkedin.com/in/SibeeshVenu
+GitHub: https://github.com/SibeeshVenu
+Location: Ireland
+
+/* SITE */
+Last update: 2025/11/28
+Standards: HTML5, CSS3, JavaScript
+Components: Bootstrap 4, jQuery, Font Awesome
+IDE: VS Code, Cursor
+Language: English
+
+/* THANKS */
+To all the amazing developers in the community who share their knowledge.
+Special thanks to the open-source community.
+

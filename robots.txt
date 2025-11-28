@@ -1,0 +1,11 @@
+# robots.txt for https://sibeeshvenu.com/
+User-agent: *
+Allow: /
+Disallow: /vendor/
+
+# Sitemap
+Sitemap: https://sibeeshvenu.com/sitemap.xml
+
+# Crawl-delay for better server performance
+Crawl-delay: 1
+

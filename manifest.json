@@ -1,0 +1,47 @@
+{
+  "name": "Sibeesh Venu - Senior Software Engineer at Microsoft",
+  "short_name": "Sibeesh Venu",
+  "description": "Senior Software Engineer at Microsoft | Azure Expert | Former Microsoft MVP (2016-2022) | Technical Author",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1f2021",
+  "theme_color": "#BD5D38",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/img/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/favicon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/favicon-128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/favicon-196x196.png",
+      "sizes": "196x196",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/img/apple-touch-icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["technology", "developer", "portfolio"],
+  "lang": "en-US",
+  "dir": "ltr"
+}
+
