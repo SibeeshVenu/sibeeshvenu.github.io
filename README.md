@@ -50,12 +50,14 @@ Personal portfolio website showcasing my professional experience, skills, and ac
 ├── css/
 │   ├── resume.css         # Source CSS
 │   └── resume.min.css     # Minified CSS
-├── img/                   # Images and icons
+├── img/
+│   ├── profile.jpg        # Main profile photo (used everywhere)
+│   ├── favicon-*.png      # Favicon in multiple sizes
+│   └── apple-touch-icon-*.png  # Apple touch icons
 ├── index.html            # Main HTML file
-├── manifest.json         # PWA manifest
-├── service-worker.js     # Service worker
 ├── sitemap.xml          # SEO sitemap
-└── robots.txt           # Crawler directives
+├── robots.txt           # Crawler directives
+└── humans.txt           # Developer credits
 ```
 
 ## 🚀 Performance
