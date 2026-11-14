@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support &amp; FAQ — TruthScan</title>
+  <meta name="description" content="TruthScan support, quick start guide, and frequently asked questions. Get help with the parenting conversation game." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Support &amp; FAQ — TruthScan" />
+  <meta property="og:description" content="Quick start guide and FAQ for TruthScan, the novelty parenting conversation game." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sibeeshvenu.com/truthscan/support.html" />
+  <meta property="og:site_name" content="TruthScan" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Support &amp; FAQ — TruthScan" />
+  <meta name="twitter:description" content="Quick start guide and FAQ for TruthScan." />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a1a;
+      --bg-card: #0f0f28;
+      --bg-card2: #12122e;
+      --accent: #00d4ff;
+      --accent-dim: rgba(0, 212, 255, 0.1);
+      --accent-border: rgba(0, 212, 255, 0.25);
+      --text: #e8e8f0;
+      --text-muted: #8888aa;
+      --radius: 10px;
+      --max-w: 760px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── HEADER ── */
+    .page-header {
+      background: rgba(0,212,255,0.04);
+      border-bottom: 1px solid var(--accent-border);
+      padding: 48px 20px 36px;
+      text-align: center;
+    }
+    .back-link {
+      display: inline-block;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+    .back-link:hover { color: var(--accent); text-decoration: none; }
+    .page-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .page-title {
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
+      font-weight: 900;
+      color: var(--text);
+    }
+
+    /* ── CONTENT ── */
+    .content {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 48px 20px 80px;
+    }
+
+    /* ── SECTION HEADINGS ── */
+    .section-heading {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-heading::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.08);
+    }
+
+    /* ── QUICK START ── */
+    .quickstart-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 56px;
+    }
+    .qs-card {
+      background: var(--bg-card);
+      border: 1px solid var(--accent-border);
+      border-radius: var(--radius);
+      padding: 28px 20px;
+      text-align: center;
+    }
+    .qs-icon { font-size: 2.4rem; display: block; margin-bottom: 12px; }
+    .qs-step-num {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .qs-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .qs-desc { font-size: 0.85rem; color: var(--text-muted); }
+
+    /* ── FAQ ── */
+    .faq-list { margin-bottom: 56px; }
+    .faq-item {
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius);
+      margin-bottom: 10px;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .faq-item:hover { border-color: var(--accent-border); }
+    .faq-q {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 18px 20px;
+      cursor: pointer;
+      background: var(--bg-card2);
+      user-select: none;
+    }
+    .faq-q-text {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .faq-toggle {
+      color: var(--accent);
+      font-size: 1.3rem;
+      font-weight: 300;
+      flex-shrink: 0;
+      transition: transform 0.2s;
+      line-height: 1;
+      margin-top: 2px;
+    }
+    .faq-item input[type="checkbox"] { display: none; }
+    .faq-item input[type="checkbox"]:checked ~ .faq-body { max-height: 400px; }
+    .faq-item input[type="checkbox"]:checked ~ .faq-q .faq-toggle { transform: rotate(45deg); }
+    .faq-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .faq-a {
+      padding: 0 20px 18px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      background: var(--bg-card2);
+    }
+    .faq-a strong { color: var(--text); }
+
+    /* ── DOWNLOAD ── */
+    .download-block {
+      text-align: center;
+      background: var(--bg-card);
+      border: 1px solid var(--accent-border);
+      border-radius: var(--radius);
+      padding: 36px 24px;
+      margin-bottom: 40px;
+    }
+    .download-block h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+    .store-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .store-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--accent-dim);
+      border: 1px solid var(--accent-border);
+      border-radius: var(--radius);
+      padding: 12px 24px;
+      color: var(--text);
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: background 0.2s, transform 0.15s;
+      text-decoration: none;
+    }
+    .store-btn:hover {
+      background: rgba(0,212,255,0.2);
+      transform: translateY(-2px);
+      text-decoration: none;
+      color: var(--text);
+    }
+    .store-btn-icon { font-size: 1.3rem; }
+    .coming-soon-note {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* ── PAGE NAV ── */
+    .page-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+    .page-nav a {
+      background: var(--bg-card);
+      border: 1px solid var(--accent-border);
+      border-radius: var(--radius);
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      color: var(--text);
+      transition: background 0.2s;
+    }
+    .page-nav a:hover { background: var(--accent-dim); text-decoration: none; }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 24px 20px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+    footer a { color: var(--text-muted); }
+    footer a:hover { color: var(--accent); }
+    .footer-dot { margin: 0 6px; opacity: 0.4; }
+
+    @media (max-width: 600px) {
+      .content { padding: 32px 16px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="page-header">
+    <a href="index.html" class="back-link">← Back to TruthScan</a>
+    <p class="page-label">Help Centre</p>
+    <h1 class="page-title">Support &amp; FAQ</h1>
+  </div>
+
+  <!-- CONTENT -->
+  <main class="content">
+
+    <!-- ── QUICK START ── -->
+    <section aria-labelledby="quickstart-heading">
+      <h2 class="section-heading" id="quickstart-heading">🚀 Quick Start Guide</h2>
+      <div class="quickstart-steps">
+        <div class="qs-card">
+          <span class="qs-icon">🤫</span>
+          <p class="qs-step-num">Step 1</p>
+          <p class="qs-title">Set Up Secretly</p>
+          <p class="qs-desc">Open TruthScan, choose a scenario (e.g. "Did you brush your teeth?"), and select the result you want to reveal.</p>
+        </div>
+        <div class="qs-card">
+          <span class="qs-icon">📱</span>
+          <p class="qs-step-num">Step 2</p>
+          <p class="qs-title">Hand to Child</p>
+          <p class="qs-desc">Pass the phone to your child and ask them to press their finger on the glowing scan area. The scanning animation begins!</p>
+        </div>
+        <div class="qs-card">
+          <span class="qs-icon">🎭</span>
+          <p class="qs-step-num">Step 3</p>
+          <p class="qs-title">Dramatic Reveal</p>
+          <p class="qs-desc">The screen shows your pre-set result. Watch their reaction — then enjoy the conversation that follows!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FAQ ── -->
+    <section aria-labelledby="faq-heading">
+      <h2 class="section-heading" id="faq-heading">❓ Frequently Asked Questions</h2>
+      <div class="faq-list">
+
+        <!-- Q1 -->
+        <div class="faq-item">
+          <input type="checkbox" id="faq1" />
+          <label class="faq-q" for="faq1">
+            <span class="faq-q-text">Is TruthScan a real scanner?</span>
+            <span class="faq-toggle">+</span>
+          </label>
+          <div class="faq-body">
+            <div class="faq-a">
+              <strong>No — TruthScan is a novelty game, not a real scanner.</strong> The app does not measure any biological parameters, detect lies, analyse voice stress, or perform any kind of biometric scanning. All "scan results" are preset by the parent before handing the phone to the child. It's a fun roleplay toy designed to spark family conversations!
+            </div>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="faq-item">
+          <input type="checkbox" id="faq2" />
+          <label class="faq-q" for="faq2">
+            <span class="faq-q-text">What age is TruthScan for?</span>
+            <span class="faq-toggle">+</span>
+          </label>
+          <div class="faq-body">
+            <div class="faq-a">
+              TruthScan works best with children aged <strong>4–12</strong>. Younger children love the dramatic scanning animation and take the results very seriously! Older children (10+) tend to figure out it's a game quite quickly — but that's part of the fun. It's a great icebreaker for conversations at any age.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="faq-item">
+          <input type="checkbox" id="faq3" />
+          <label class="faq-q" for="faq3">
+            <span class="faq-q-text">Is my data safe?</span>
+            <span class="faq-toggle">+</span>
+          </label>
+          <div class="faq-body">
+            <div class="faq-a">
+              Absolutely. TruthScan collects <strong>zero personal data</strong>. Everything — your custom scenarios, settings, and Pro purchase status — is stored only on your device using local storage. Nothing is ever transmitted to any server, and we have no access to any of it. See our <a href="privacy.html">Privacy Policy</a> for full details.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="faq-item">
+          <input type="checkbox" id="faq4" />
+          <label class="faq-q" for="faq4">
+            <span class="faq-q-text">What is TruthScan Pro?</span>
+            <span class="faq-toggle">+</span>
+          </label>
+          <div class="faq-body">
+            <div class="faq-a">
+              TruthScan Pro is a <strong>one-time, lifetime upgrade for €1.99</strong>. It unlocks:
+              <ul style="margin-top:10px;padding-left:0;list-style:none;">
+                <li style="padding:4px 0 4px 18px;position:relative"><span style="position:absolute;left:0;color:var(--accent)">→</span> Up to <strong>50 custom scenarios</strong> (free users get 5 pre-seeded samples)</li>
+                <li style="padding:4px 0 4px 18px;position:relative"><span style="position:absolute;left:0;color:var(--accent)">→</span> <strong>Export &amp; Import</strong> your scenarios as JSON</li>
+                <li style="padding:4px 0 4px 18px;position:relative"><span style="position:absolute;left:0;color:var(--accent)">→</span> <strong>PIN Lock</strong> to protect your setup</li>
+                <li style="padding:4px 0 4px 18px;position:relative"><span style="position:absolute;left:0;color:var(--accent)">→</span> <strong>Extra visual themes</strong> for the scanning interface</li>
+              </ul>
+              No subscription, no recurring fees — pay once, enjoy forever.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="faq-item">
+          <input type="checkbox" id="faq5" />
+          <label class="faq-q" for="faq5">
+            <span class="faq-q-text">How do I add my own scenarios?</span>
+            <span class="faq-toggle">+</span>
+          </label>
+          <div class="faq-body">
+            <div class="faq-a">
+              Navigate to <strong>My Scenarios</strong> in the app, then tap <strong>+ Add</strong>. You can set a custom question, choose the result to reveal, and add personalised messages. Adding custom scenarios requires <strong>TruthScan Pro</strong>. Free users can browse the 5 pre-seeded samples and 5 built-in presets.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="faq-item">
+          <input type="checkbox" id="faq6" />
+          <label class="faq-q" for="faq6">
+            <span class="faq-q-text">How do I transfer my scenarios to a new phone?</span>
+            <span class="faq-toggle">+</span>
+          </label>
+          <div class="faq-body">
+            <div class="faq-a">
+              With <strong>TruthScan Pro</strong>, you can export and import your scenarios:
+              <ol style="margin-top:10px;padding-left:20px;">
+                <li style="margin-bottom:6px">On your old device, go to <strong>Settings → Export Scenarios</strong>. This creates a JSON file you can share or save.</li>
+                <li style="margin-bottom:6px">On your new device, install TruthScan, unlock Pro (restore your purchase — see below), then go to <strong>Settings → Import Scenarios</strong> and select the JSON file.</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="faq-item">
+          <input type="checkbox" id="faq7" />
+          <label class="faq-q" for="faq7">
+            <span class="faq-q-text">I lost my Pro purchase — how do I restore it?</span>
+            <span class="faq-toggle">+</span>
+          </label>
+          <div class="faq-body">
+            <div class="faq-a">
+              Your purchase is tied to your App Store or Google Play account. To restore it:
+              <ol style="margin-top:10px;padding-left:20px;">
+                <li style="margin-bottom:6px">Open TruthScan and go to <strong>Settings</strong>.</li>
+                <li style="margin-bottom:6px">Tap <strong>Restore Purchases</strong>.</li>
+                <li>Your Pro status will be restored automatically as long as you are signed in with the same App Store / Google Play account used for the original purchase.</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="faq-item">
+          <input type="checkbox" id="faq8" />
+          <label class="faq-q" for="faq8">
+            <span class="faq-q-text">How do I contact support?</span>
+            <span class="faq-toggle">+</span>
+          </label>
+          <div class="faq-body">
+            <div class="faq-a">
+              Please reach out via the contact page on <a href="https://sibeeshvenu.com" target="_blank" rel="noopener">sibeeshvenu.com</a>. We'll do our best to respond promptly!
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── DOWNLOAD ── -->
+    <section aria-labelledby="download-heading">
+      <h2 class="section-heading" id="download-heading">📲 Download the App</h2>
+      <div class="download-block">
+        <h2>TruthScan — Available Soon</h2>
+        <div class="store-buttons">
+          <a href="#" class="store-btn" aria-label="Download on the App Store (coming soon)">
+            <span class="store-btn-icon">🍎</span>
+            <div>
+              <div style="font-size:0.68rem;opacity:0.6;text-transform:uppercase;letter-spacing:1px;">Download on the</div>
+              <div>App Store</div>
+            </div>
+          </a>
+          <a href="#" class="store-btn" aria-label="Get it on Google Play (coming soon)">
+            <span class="store-btn-icon">▶</span>
+            <div>
+              <div style="font-size:0.68rem;opacity:0.6;text-transform:uppercase;letter-spacing:1px;">Get it on</div>
+              <div>Google Play</div>
+            </div>
+          </a>
+        </div>
+        <p class="coming-soon-note">Coming soon to App Store and Google Play</p>
+      </div>
+    </section>
+
+    <!-- Page nav -->
+    <nav class="page-nav" aria-label="Page navigation">
+      <a href="index.html">🏠 Home</a>
+      <a href="privacy.html">🔐 Privacy Policy</a>
+      <a href="https://sibeeshvenu.com" target="_blank" rel="noopener">🌐 Developer Website</a>
+    </nav>
+
+  </main>
+
+  <footer>
+    <p>
+      © 2025 <a href="https://sibeeshvenu.com" target="_blank" rel="noopener">Sibeesh Venu</a>
+      <span class="footer-dot">·</span>
+      TruthScan is a novelty game — no real scanning occurs
+    </p>
+  </footer>
+
+</body>
+</html>

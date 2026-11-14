@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TruthScan — The Parenting Conversation Game</title>
+  <meta name="description" content="TruthScan is a fun, ethical, screen-based roleplay toy for families. A novelty parenting conversation game — no real scanning occurs." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="TruthScan — The Parenting Conversation Game" />
+  <meta property="og:description" content="A fun, ethical, screen-based roleplay toy for families. TruthScan is a novelty game — no real scanning occurs." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sibeeshvenu.com/truthscan/" />
+  <meta property="og:site_name" content="TruthScan" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="TruthScan — The Parenting Conversation Game" />
+  <meta name="twitter:description" content="A fun, ethical, screen-based roleplay toy for families." />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a1a;
+      --bg-card: #0f0f28;
+      --bg-card2: #12122e;
+      --accent: #00d4ff;
+      --accent-dim: rgba(0, 212, 255, 0.15);
+      --accent-border: rgba(0, 212, 255, 0.3);
+      --text: #e8e8f0;
+      --text-muted: #8888aa;
+      --radius: 12px;
+      --max-w: 860px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.65;
+      min-height: 100vh;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10, 10, 26, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--accent-border);
+      padding: 14px 20px;
+    }
+    nav .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); text-decoration: none; }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center;
+      padding: 100px 20px 80px;
+      background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(0,212,255,0.08) 0%, transparent 70%);
+    }
+    .hero-logo {
+      font-size: clamp(3rem, 10vw, 5.5rem);
+      font-weight: 900;
+      letter-spacing: 6px;
+      color: var(--accent);
+      text-transform: uppercase;
+      text-shadow: 0 0 40px rgba(0,212,255,0.4);
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+    .hero-scan-line {
+      display: inline-block;
+      width: 180px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      margin: 0 auto 24px;
+    }
+    .hero-tagline {
+      font-size: clamp(1.1rem, 3vw, 1.5rem);
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .hero-subtext {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 500px;
+      margin: 0 auto 20px;
+    }
+    .disclaimer-badge {
+      display: inline-block;
+      background: rgba(255,180,0,0.1);
+      border: 1px solid rgba(255,180,0,0.3);
+      color: #ffb400;
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 70px 20px; }
+    section:nth-child(even) { background: rgba(255,255,255,0.015); }
+
+    .section-label {
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 48px;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .step-card {
+      background: var(--bg-card);
+      border: 1px solid var(--accent-border);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      text-align: center;
+      position: relative;
+    }
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--accent-dim);
+      border: 1px solid var(--accent-border);
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 1rem;
+      margin-bottom: 16px;
+    }
+    .step-icon { font-size: 2rem; margin-bottom: 12px; display: block; }
+    .step-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .step-desc { font-size: 0.9rem; color: var(--text-muted); }
+
+    /* ── FEATURES ── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .feature-item {
+      background: var(--bg-card2);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius);
+      padding: 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .feature-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+    .feature-text strong { display: block; font-size: 0.95rem; color: var(--text); margin-bottom: 4px; }
+    .feature-text span { font-size: 0.85rem; color: var(--text-muted); }
+
+    /* ── DOWNLOAD ── */
+    .download-section { text-align: center; }
+    .store-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .store-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--accent-dim);
+      border: 1px solid var(--accent-border);
+      border-radius: var(--radius);
+      padding: 14px 28px;
+      color: var(--text);
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      text-decoration: none;
+    }
+    .store-btn:hover {
+      background: rgba(0,212,255,0.25);
+      transform: translateY(-2px);
+      text-decoration: none;
+      color: var(--text);
+    }
+    .store-btn-icon { font-size: 1.5rem; }
+    .coming-soon-note {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* ── LINKS SECTION ── */
+    .links-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .link-card {
+      background: var(--bg-card);
+      border: 1px solid var(--accent-border);
+      border-radius: var(--radius);
+      padding: 24px 32px;
+      text-align: center;
+      transition: transform 0.15s, background 0.2s;
+      min-width: 180px;
+    }
+    .link-card:hover {
+      background: var(--accent-dim);
+      transform: translateY(-3px);
+      text-decoration: none;
+    }
+    .link-card-icon { font-size: 2rem; display: block; margin-bottom: 8px; }
+    .link-card-label { font-size: 0.95rem; font-weight: 600; color: var(--text); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 32px 20px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+    }
+    footer a { color: var(--text-muted); }
+    footer a:hover { color: var(--accent); }
+    .footer-dot { margin: 0 6px; opacity: 0.4; }
+
+    @media (max-width: 600px) {
+      .hero { padding: 70px 16px 60px; }
+      section { padding: 50px 16px; }
+      .nav-links { gap: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <span class="nav-logo">TruthScan</span>
+      <div class="nav-links">
+        <a href="#how-it-works">How It Works</a>
+        <a href="#features">Features</a>
+        <a href="#download">Download</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-logo">TruthScan</div>
+    <div class="hero-scan-line"></div>
+    <p class="hero-tagline">The Parenting Conversation Game</p>
+    <p class="hero-subtext">A fun, ethical, screen-based roleplay toy for families</p>
+    <span class="disclaimer-badge">⚠ Novelty Game — No Real Scanning Occurs</span>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works">
+    <div class="container">
+      <p class="section-label">Getting Started</p>
+      <h2 class="section-title">How It Works</h2>
+      <div class="steps">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <span class="step-icon">🤫</span>
+          <p class="step-title">Parent Sets Up Secretly</p>
+          <p class="step-desc">Pick a scenario — like "Did you brush your teeth?" — and choose the reveal result. Only you know what the scan will show.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <span class="step-icon">📱</span>
+          <p class="step-title">Hand It to Your Child</p>
+          <p class="step-desc">Pass the phone over and ask them to place their finger on the screen. The dramatic scanning animation begins.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <span class="step-icon">🎭</span>
+          <p class="step-title">Dramatic Scan Reveal</p>
+          <p class="step-desc">The screen displays your preset result — "TRUTH DETECTED" or "FIB DETECTED" — sparking conversations, laughs, and confessions!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features">
+    <div class="container">
+      <p class="section-label">What's Inside</p>
+      <h2 class="section-title">Features</h2>
+      <div class="features-grid">
+        <div class="feature-item">
+          <span class="feature-icon">🎮</span>
+          <div class="feature-text">
+            <strong>Built-in Scenarios</strong>
+            <span>5 pre-loaded family favourites — homework, bedtime, screen time, and more.</span>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">✏️</span>
+          <div class="feature-text">
+            <strong>Custom Scenarios (Pro)</strong>
+            <span>Create up to 50 personalised scan scenarios tailored to your family.</span>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">🔒</span>
+          <div class="feature-text">
+            <strong>PIN Lock (Pro)</strong>
+            <span>Protect your setup so curious kids can't peek at the results before the reveal.</span>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">🎨</span>
+          <div class="feature-text">
+            <strong>Extra Themes (Pro)</strong>
+            <span>Unlock additional visual themes to change the scanning interface.</span>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">📤</span>
+          <div class="feature-text">
+            <strong>Export &amp; Import (Pro)</strong>
+            <span>Back up your scenarios as JSON and restore them on a new device.</span>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">🛡️</span>
+          <div class="feature-text">
+            <strong>Zero Data Collection</strong>
+            <span>No accounts, no cloud, no tracking. Everything stays on your device.</span>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">👨‍👩‍👧</span>
+          <div class="feature-text">
+            <strong>Family-Safe</strong>
+            <span>COPPA compliant by design. No data ever leaves your phone.</span>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">💎</span>
+          <div class="feature-text">
+            <strong>Pro — One-Time Purchase</strong>
+            <span>€1.99 lifetime unlock. No subscriptions, no recurring fees.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOWNLOAD -->
+  <section id="download">
+    <div class="container download-section">
+      <p class="section-label">Get the App</p>
+      <h2 class="section-title">Download TruthScan</h2>
+      <div class="store-buttons">
+        <a href="#" class="store-btn" aria-label="Download on the App Store (coming soon)">
+          <span class="store-btn-icon">🍎</span>
+          <div>
+            <div style="font-size:0.7rem;opacity:0.7;text-transform:uppercase;letter-spacing:1px;">Download on the</div>
+            <div>App Store</div>
+          </div>
+        </a>
+        <a href="#" class="store-btn" aria-label="Get it on Google Play (coming soon)">
+          <span class="store-btn-icon">▶</span>
+          <div>
+            <div style="font-size:0.7rem;opacity:0.7;text-transform:uppercase;letter-spacing:1px;">Get it on</div>
+            <div>Google Play</div>
+          </div>
+        </a>
+      </div>
+      <p class="coming-soon-note">Coming soon to App Store and Google Play</p>
+    </div>
+  </section>
+
+  <!-- LINKS -->
+  <section>
+    <div class="container">
+      <p class="section-label">More</p>
+      <h2 class="section-title">Helpful Links</h2>
+      <div class="links-row">
+        <a href="support.html" class="link-card">
+          <span class="link-card-icon">🛟</span>
+          <span class="link-card-label">Support &amp; FAQ</span>
+        </a>
+        <a href="privacy.html" class="link-card">
+          <span class="link-card-icon">🔐</span>
+          <span class="link-card-label">Privacy Policy</span>
+        </a>
+        <a href="https://sibeeshvenu.com" class="link-card" target="_blank" rel="noopener">
+          <span class="link-card-icon">🌐</span>
+          <span class="link-card-label">Developer Website</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      © 2025 <a href="https://sibeeshvenu.com" target="_blank" rel="noopener">Sibeesh Venu</a>
+      <span class="footer-dot">·</span>
+      <a href="https://sibeeshvenu.com" target="_blank" rel="noopener">sibeeshvenu.com</a>
+      <span class="footer-dot">·</span>
+      TruthScan is a novelty game — no real scanning occurs
+    </p>
+  </footer>
+
+</body>
+</html>
